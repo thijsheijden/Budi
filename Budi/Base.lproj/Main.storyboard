@@ -34,15 +34,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFE-bX-UvJ">
-                                <rect key="frame" x="108" y="524" width="158" height="58"/>
-                                <state key="normal" image="Start Button"/>
-                                <connections>
-                                    <action selector="startTimer:" destination="9pv-A4-QxB" eventType="touchUpInside" id="s1G-oT-kRd"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFO-W8-fO5" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
-                                <rect key="frame" x="12" y="124" width="350" height="350"/>
+                                <rect key="frame" x="12" y="70" width="350" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzE-4Z-kd1">
                                         <rect key="frame" x="42" y="143.5" width="267" height="63.5"/>
@@ -58,8 +51,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="AzE-4Z-kd1" firstAttribute="centerX" secondItem="GFO-W8-fO5" secondAttribute="centerX" id="GK5-5u-lqf"/>
-                                    <constraint firstItem="AzE-4Z-kd1" firstAttribute="centerY" secondItem="GFO-W8-fO5" secondAttribute="centerY" id="RKF-l1-1we"/>
                                     <constraint firstAttribute="height" constant="350" id="SlH-uj-Whz"/>
+                                    <constraint firstItem="AzE-4Z-kd1" firstAttribute="centerY" secondItem="GFO-W8-fO5" secondAttribute="centerY" id="fRk-8n-LuN"/>
                                     <constraint firstAttribute="width" constant="350" id="tAh-ns-4Ai"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -83,7 +76,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ybf-iL-IVE">
-                                <rect key="frame" x="17" y="524" width="341" height="58"/>
+                                <rect key="frame" x="16" y="510" width="341" height="58"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OH-Ey-BCi">
                                         <rect key="frame" x="0.0" y="0.0" width="158" height="58"/>
@@ -105,16 +98,26 @@
                                     <constraint firstAttribute="width" constant="341" id="R6q-uA-W5h"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFE-bX-UvJ">
+                                <rect key="frame" x="108.5" y="510" width="158" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="158" id="3sB-eJ-IKw"/>
+                                    <constraint firstAttribute="height" constant="58" id="uCe-Zh-zJD"/>
+                                </constraints>
+                                <state key="normal" image="Start Button"/>
+                                <connections>
+                                    <action selector="startTimer:" destination="9pv-A4-QxB" eventType="touchUpInside" id="s1G-oT-kRd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GFO-W8-fO5" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="04h-VI-344"/>
-                            <constraint firstItem="GFO-W8-fO5" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="104" id="2ve-MH-WcJ"/>
-                            <constraint firstItem="ybf-iL-IVE" firstAttribute="top" secondItem="GFO-W8-fO5" secondAttribute="bottom" constant="50" id="O9O-3Q-gfb"/>
-                            <constraint firstItem="aFE-bX-UvJ" firstAttribute="top" secondItem="GFO-W8-fO5" secondAttribute="bottom" constant="50" id="Pfv-RZ-S2d"/>
-                            <constraint firstItem="aFE-bX-UvJ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Z9w-Y1-EgJ"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="aFE-bX-UvJ" secondAttribute="bottom" constant="56" id="jZv-dF-ZeX"/>
-                            <constraint firstItem="ybf-iL-IVE" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="lSc-T0-ueS"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ybf-iL-IVE" secondAttribute="bottom" constant="50" id="3VZ-Kd-tty"/>
+                            <constraint firstItem="GFO-W8-fO5" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="50" id="9i0-ba-3L9"/>
+                            <constraint firstItem="ybf-iL-IVE" firstAttribute="centerX" secondItem="GFO-W8-fO5" secondAttribute="centerX" id="Isl-iR-gwd"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="aFE-bX-UvJ" secondAttribute="bottom" constant="50" id="XfL-ca-v34"/>
+                            <constraint firstItem="aFE-bX-UvJ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Zw7-Kg-JOM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -136,41 +139,58 @@
         <!--Ambient Sound-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" userLabel="Ambient Sound" customClass="SecondViewController" customModule="Budi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" userLabel="Ambient Sound" customClass="AmbientViewController" customModule="Budi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="312" width="201.5" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fno-8M-eR7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmbientSoundCell" rowHeight="108" id="sGp-6O-WHg" customClass="AmbientSoundCell" customModule="Budi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sGp-6O-WHg" id="IsM-au-qkC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akF-Vk-wjv">
+                                                    <rect key="frame" x="160" y="38.5" width="55" height="30"/>
+                                                    <state key="normal" title="Sound 1"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="akF-Vk-wjv" firstAttribute="centerX" secondItem="IsM-au-qkC" secondAttribute="centerX" id="pp5-uj-U7A"/>
+                                                <constraint firstItem="akF-Vk-wjv" firstAttribute="centerY" secondItem="IsM-au-qkC" secondAttribute="centerY" id="tor-pd-DpB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="soundButton" destination="tor-pd-DpB" id="bUE-Rh-zRd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="fno-8M-eR7" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="F5k-GH-qeH"/>
+                            <constraint firstAttribute="bottom" secondItem="fno-8M-eR7" secondAttribute="bottom" id="PUR-zD-btm"/>
+                            <constraint firstItem="fno-8M-eR7" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="gyO-5y-AGO"/>
+                            <constraint firstItem="fno-8M-eR7" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="tN1-Ka-W5y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ambient Sound" image="musicNoteSymbol" selectedImage="musicNoteSymbol" id="cPa-gy-q4n">
                         <color key="badgeColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="ambientSoundTableView" destination="fno-8M-eR7" id="Oeq-8p-NL7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-342"/>
+            <point key="canvasLocation" x="749.60000000000002" y="-342.27886056971516"/>
         </scene>
         <!--Assignments-->
         <scene sceneID="BLV-dU-cfs">
