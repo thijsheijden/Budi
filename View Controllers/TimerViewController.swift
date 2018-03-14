@@ -20,7 +20,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     
     //Variables and constants
-    var timeInSeconds = 10
+    var timeInSeconds = 20
     var timer = Timer()
     var isTimerRunning = false
     
@@ -29,8 +29,8 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.closeActivityController), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.openactivity), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.closeActivityController), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.openactivity), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         
         focusTimer.ringStyle = .ontop
         focusTimer.outerCapStyle = .round
@@ -73,19 +73,10 @@ class TimerViewController: UIViewController {
     //Does not work yet!!!
     @objc func closeActivityController()  {
         
-        var timeWhenClosed = Date().timeIntervalSince1970
-        openactivity(time: timeWhenClosed)
-        print("app closed")
-        
     }
 
-    @objc func openactivity(time: Double)  {
+    @objc func openactivity(timeAppClosed: Double)  {
         
-        var timeSinceClosed = 0.0
-        var timeWhenOpened = Date().timeIntervalSince1970
-        timeSinceClosed = Double(timeInSeconds) + (timeWhenOpened - time)
-        print(timeSinceClosed)
-            
     }
 
     
@@ -105,7 +96,7 @@ class TimerViewController: UIViewController {
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10.0, repeats: false)
             //Request the notification
-            let request = UNNotificationRequest(identifier: "Time's up!", content: notification, trigger: trigger)
+            let request = UNNotificationRequest(identifier: "Alert sent that time is up!", content: notification, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
             
             if didAllow {
@@ -125,7 +116,7 @@ class TimerViewController: UIViewController {
             runTimer()
         }
         
-        focusTimer.setProgress(value: 100, animationDuration: 1500.0) {
+        focusTimer.setProgress(value: 100, animationDuration: 20.0) {
             print("Time's up!")
             
         }
