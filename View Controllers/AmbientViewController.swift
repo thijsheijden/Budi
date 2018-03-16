@@ -8,16 +8,19 @@
 
 import UIKit
 
-class AmbientViewController: UITableViewController {
+class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var ambientSoundTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     //Constants and variables
     let cellIdentifier = "AmbientSoundCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+        tableView.delegate = self
+        tableView.dataSource = self
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,14 +29,24 @@ class AmbientViewController: UITableViewController {
     }
     
     //UITableview Functions
-    func ambientSoundTableView(_ ambientSoundTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ambientSounds.count
     }
     
-    func ambientSoundTableView(_ ambientSoundTableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = ambientSoundTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AmbientSoundCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AmbientSoundCell  else {
+            fatalError("The dequeued cell is not an instance of AmbientSoundCell.")
         }
+        
+        //Rounding the corners of the ambientSoundCells
+        cell.cellView.layer.cornerRadius = 8
+        
+        //Adding all the sound images to the cells and giving them rounded edges
+        cell.soundImage.image = UIImage(named: ambientSounds[indexPath.row].imageName)
+        
+        
+        
         return cell
+        
     }
 }
