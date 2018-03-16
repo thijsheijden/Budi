@@ -11,9 +11,10 @@ import UIKit
 class AmbientSoundCell: UITableViewCell {
 
     //MARK: Setting the properties of the cell
-    @IBOutlet weak var soundButton: NSLayoutConstraint!
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var soundImage: UIImageView!
+    @IBOutlet weak var soundNameLabel: UILabel!
+    @IBOutlet weak var soundToggleButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +22,6 @@ class AmbientSoundCell: UITableViewCell {
         
     }
 
+    
+    
 }

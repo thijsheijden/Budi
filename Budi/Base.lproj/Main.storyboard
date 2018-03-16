@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Settings-->
         <scene sceneID="y18-CJ-3Qu">
@@ -168,21 +173,33 @@
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="86" id="xpb-HE-a3E"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQy-hi-9NR">
+                                                            <rect key="frame" x="301" y="38" width="46" height="42"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="46" id="LFG-LE-cFp"/>
+                                                                <constraint firstAttribute="height" constant="42" id="uPs-sh-HBx"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                                            <state key="normal" title="OFF">
+                                                                <color key="titleColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Rain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Eb-8j-bBS">
+                                                            <rect key="frame" x="100" y="24" width="159" height="21"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="h4t-sG-biG" firstAttribute="centerY" secondItem="7p2-kv-CtA" secondAttribute="centerY" id="5vq-ca-fGP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nQy-hi-9NR" secondAttribute="trailing" constant="12" id="LQp-ns-Fzr"/>
+                                                        <constraint firstItem="4Eb-8j-bBS" firstAttribute="centerX" secondItem="7p2-kv-CtA" secondAttribute="centerX" id="PSt-aJ-2nf"/>
                                                         <constraint firstItem="h4t-sG-biG" firstAttribute="leading" secondItem="7p2-kv-CtA" secondAttribute="leading" constant="12" id="jCs-KD-F0a"/>
                                                         <constraint firstAttribute="height" constant="119.5" id="v0v-9t-01a"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akF-Vk-wjv">
-                                                    <rect key="frame" x="160" y="45" width="55" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Sound 1">
-                                                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7p2-kv-CtA" firstAttribute="leading" secondItem="IsM-au-qkC" secondAttribute="leading" constant="8" id="2XQ-Lg-Y8J"/>
@@ -194,6 +211,8 @@
                                         <connections>
                                             <outlet property="cellView" destination="7p2-kv-CtA" id="Hfu-US-xsG"/>
                                             <outlet property="soundImage" destination="h4t-sG-biG" id="Eo4-33-DWr"/>
+                                            <outlet property="soundNameLabel" destination="4Eb-8j-bBS" id="G6e-bv-FJB"/>
+                                            <outlet property="soundToggleButton" destination="nQy-hi-9NR" id="pXp-r8-lF3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

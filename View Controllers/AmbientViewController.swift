@@ -43,8 +43,7 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //Adding all the sound images to the cells and giving them rounded edges
         cell.soundImage.image = UIImage(named: ambientSounds[indexPath.row].imageName)
-        
-        
+        cell.soundNameLabel.text = ambientSounds[indexPath.row].imageName
         
         return cell
         
