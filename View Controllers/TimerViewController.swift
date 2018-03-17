@@ -33,6 +33,7 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Function that adds all the ambientSound classes to the array
         addSoundsToArray()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.closeActivityController), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
@@ -41,12 +42,14 @@ class TimerViewController: UIViewController {
         focusTimer.ringStyle = .ontop
         focusTimer.outerCapStyle = .round
         
+        //Hiding buttons that are not supposed to be accesible
         pauseButton.isHidden = true
         stopButton.isHidden = true
         resumeButton.isHidden = true
         
     }
     
+    //ViewWillDisappear function
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
@@ -61,11 +64,13 @@ class TimerViewController: UIViewController {
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
     
+    //Function that starts the timer
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(TimerViewController.updateTimer)), userInfo: nil, repeats: true)
         isTimerRunning = true
     }
     
+    //Function which updates the timer
     @objc func updateTimer() {
         if timeInSeconds < 1 {
             timer.invalidate()
@@ -95,7 +100,6 @@ class TimerViewController: UIViewController {
     }
     
     //Functions that calculate the time between when the app has been closed and opened again
-    //Does not work yet!!!
     
     //Function to get time difference
     func getTimeDifference(startDate: Date) -> (Int, Int, Int) {
@@ -110,6 +114,7 @@ class TimerViewController: UIViewController {
         return(components.hour!, components.minute!, components.second!)
     }
     
+    //Function which determines what happens when the app is closed (ie homescreen/task manager)
     @objc func closeActivityController()  {
         print("Closed application")
         
@@ -123,6 +128,7 @@ class TimerViewController: UIViewController {
         
     }
     
+    //What happens when the app is opened again
     @objc func openactivity()  {
         print("Opened application")
         
@@ -137,7 +143,8 @@ class TimerViewController: UIViewController {
         }
         
     }
-
+    
+    //Updating the timer UI to show the correct time
     func updateTimerSinceAppClosed(secondsPassed: Int) {
         timeInSeconds = (timeInSeconds - secondsPassed) + 1
         print(secondsPassed)
