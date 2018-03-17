@@ -39,7 +39,7 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         //Rounding the corners of the ambientSoundCells
-        cell.cellView.layer.cornerRadius = 8
+        cell.cellView.layer.cornerRadius = 20
         
         //Adding all the sound images to the cells and giving them rounded edges
         cell.soundImage.image = UIImage(named: ambientSounds[indexPath.row].imageName)

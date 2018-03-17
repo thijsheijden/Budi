@@ -42,8 +42,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFO-W8-fO5" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
                                 <rect key="frame" x="12" y="70" width="350" height="350"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzE-4Z-kd1">
-                                        <rect key="frame" x="42" y="143.5" width="267" height="63.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 25 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzE-4Z-kd1">
+                                        <rect key="frame" x="42" y="143.5" width="267" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="63.5" id="QA4-ib-ngK"/>
                                             <constraint firstAttribute="width" constant="267" id="j5A-oR-hEF"/>
@@ -114,15 +114,28 @@
                                     <action selector="startTimer:" destination="9pv-A4-QxB" eventType="touchUpInside" id="s1G-oT-kRd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNG-Zh-dsD" userLabel="Resume Button">
+                                <rect key="frame" x="20" y="510" width="158" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="YuV-aM-cHq"/>
+                                    <constraint firstAttribute="width" constant="158" id="vSF-Zs-0NS"/>
+                                </constraints>
+                                <state key="normal" image="Resume Button"/>
+                                <connections>
+                                    <action selector="resumeButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="RDS-Hd-3TL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GFO-W8-fO5" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="04h-VI-344"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ybf-iL-IVE" secondAttribute="bottom" constant="50" id="3VZ-Kd-tty"/>
                             <constraint firstItem="GFO-W8-fO5" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="50" id="9i0-ba-3L9"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="UNG-Zh-dsD" secondAttribute="bottom" constant="50" id="BSB-8i-fik"/>
                             <constraint firstItem="ybf-iL-IVE" firstAttribute="centerX" secondItem="GFO-W8-fO5" secondAttribute="centerX" id="Isl-iR-gwd"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="aFE-bX-UvJ" secondAttribute="bottom" constant="50" id="XfL-ca-v34"/>
                             <constraint firstItem="aFE-bX-UvJ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Zw7-Kg-JOM"/>
+                            <constraint firstItem="UNG-Zh-dsD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="urS-Jf-guw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -131,7 +144,8 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="focusTimer" destination="GFO-W8-fO5" id="b6d-mN-rGd"/>
-                        <outlet property="pauseButton" destination="2OH-Ey-BCi" id="uAQ-vY-av8"/>
+                        <outlet property="pauseButton" destination="2OH-Ey-BCi" id="RJH-tk-zgC"/>
+                        <outlet property="resumeButton" destination="UNG-Zh-dsD" id="oJ4-3k-MiZ"/>
                         <outlet property="startButton" destination="aFE-bX-UvJ" id="Mo2-5o-5bb"/>
                         <outlet property="stopButton" destination="euA-Dd-844" id="W2w-LA-Ddr"/>
                         <outlet property="timerLabel" destination="AzE-4Z-kd1" id="bl8-63-e8f"/>
@@ -149,7 +163,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fno-8M-eR7">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fno-8M-eR7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.37264906404582498" blue="0.48502998928627405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -281,6 +295,7 @@
     <resources>
         <image name="AC" width="200" height="200"/>
         <image name="Pause Button" width="158" height="58"/>
+        <image name="Resume Button" width="158" height="58"/>
         <image name="Start Button" width="158" height="58"/>
         <image name="Stop Button" width="158" height="58"/>
         <image name="assignmentSymbol" width="24" height="24"/>
