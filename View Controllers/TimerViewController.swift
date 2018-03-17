@@ -26,6 +26,7 @@ class TimerViewController: UIViewController {
     var timer = Timer()
     var isTimerRunning = false
     var roundNumber = 1
+    var focusRounds = 1
     
     
     //ViewDidLoad and viewWillDisapear
@@ -78,12 +79,13 @@ class TimerViewController: UIViewController {
             
             roundNumber += 1
             
-            if roundNumber % 2 == 0 {
+            if roundNumber % 2 == 0 && roundNumber < 4 {
                 timeInSeconds = 300
             } else if roundNumber % 4 == 0 {
                 timeInSeconds = 1800
             } else {
                 timeInSeconds = 1500
+                focusRounds += 1
             }
             
         } else {
@@ -157,9 +159,20 @@ class TimerViewController: UIViewController {
             
             //Show notification when time is over
             let notification = UNMutableNotificationContent()
-            notification.title = "Time's up!"
-            notification.subtitle = "You completed focus round 1! Take a short break of about 5 minutes."
             notification.badge = 1
+            
+            //Creating different notifications for different types of rounds
+            
+            if self.roundNumber % 2 == 0 && self.roundNumber < 4 {
+                notification.title = "5 minute break over!"
+                notification.body = "The short 5 minute break is over. You should focus and get back to work! This was round number \(self.roundNumber)."
+            } else if self.roundNumber == 4 {
+                notification.title = "30 minute break over!"
+                notification.body = "The long pause round is over, you should focus and get back to work! This was round number \(self.roundNumber)."
+            } else {
+                notification.title = "25 minutes focus is over!"
+                notification.body = "The focus round is over, you may now have a short break. This was focus round \(self.focusRounds)."
+            }
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: Double(self.timeInSeconds), repeats: false)
             //Request the notification
