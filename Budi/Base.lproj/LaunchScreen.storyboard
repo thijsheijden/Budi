@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="rQL-9Z-V3j">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="xlM-xA-H48">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.24567228555679321" green="0.31747153401374817" blue="0.70850843191146851" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rQL-9Z-V3j" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="8FO-aj-fBT"/>
-                            <constraint firstItem="rQL-9Z-V3j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D6O-b3-Bum"/>
-                            <constraint firstItem="rQL-9Z-V3j" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dxn-mo-2AV"/>
-                            <constraint firstItem="rQL-9Z-V3j" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xmW-OM-xgg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xlM-xA-H48" secondAttribute="trailing" id="gcO-Kr-dad"/>
+                            <constraint firstItem="xlM-xA-H48" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hhz-7c-gW6"/>
+                            <constraint firstItem="xlM-xA-H48" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kpb-2U-9wF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xlM-xA-H48" secondAttribute="bottom" id="uyu-uz-iYE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchImage" width="375" height="667"/>
+        <image name="launchScreenImage" width="375" height="667"/>
     </resources>
 </document>
