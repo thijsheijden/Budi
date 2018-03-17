@@ -73,6 +73,9 @@ class TimerViewController: UIViewController {
             stopButton.isHidden = true
             isTimerRunning = false
             
+            //setting the label to 00 : 00 : 00 in case the app was closed when the timer reached 0
+            timerLabel.text = timeString(time: TimeInterval(0))
+            
             roundNumber += 1
             
             if roundNumber % 2 == 0 {
@@ -107,16 +110,29 @@ class TimerViewController: UIViewController {
     
     @objc func closeActivityController()  {
         print("Closed application")
-        var startDate = Date()
-        print(startDate)
-        UserDefaults.standard.set(startDate, forKey: "startDate")
+        
+        if isTimerRunning == false {
+            print("Time was not running")
+        } else {
+            var startDate = Date()
+            print(startDate)
+            UserDefaults.standard.set(startDate, forKey: "startDate")
+        }
+        
     }
     
     @objc func openactivity()  {
         print("Opened application")
-        var dateAppClosed = UserDefaults.standard.object(forKey: "startDate") as? Date?
         
-        getTimeDifference(startDate: dateAppClosed as! Date)
+        //Reseting the app badge count back to 0 when the app is opened
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        if isTimerRunning == false {
+            print("Timer was not running time not updated")
+        } else {
+            var dateAppClosed = UserDefaults.standard.object(forKey: "startDate") as? Date?
+            getTimeDifference(startDate: dateAppClosed as! Date)
+        }
         
     }
 
@@ -124,14 +140,20 @@ class TimerViewController: UIViewController {
         timeInSeconds = (timeInSeconds - secondsPassed) + 1
         print(secondsPassed)
         updateTimer()
+
     }
     
     
     //IBActions
     @IBAction func startTimer(_ sender: Any) {
         
+        //Start the progress ring
+        focusTimer.setProgress(value: 100, animationDuration: 1500.0) {
+            
+        }
+        
         //Ask the user permission to send notifications
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (didAllow, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (didAllow, error) in
             
             //Show notification when time is over
             let notification = UNMutableNotificationContent()
@@ -159,10 +181,6 @@ class TimerViewController: UIViewController {
         
         if isTimerRunning == false {
             runTimer()
-        }
-        
-        focusTimer.setProgress(value: 100, animationDuration: 1500.0) {
-            
         }
         
     }
