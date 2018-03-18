@@ -154,6 +154,8 @@ class TimerViewController: UIViewController {
                 focusRounds += 1
             }
             
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            
         } else {
             timeInSeconds -= 1
             timerLabel.text = timeString(time: TimeInterval(timeInSeconds))
@@ -213,21 +215,30 @@ class TimerViewController: UIViewController {
 
     }
     
+    //Function that is called with the quick action from the homescreen
+    func quickActionFocusTimer() {
+        startTimerFunction()
+        isTimerRunning = true
+    }
     
-    //IBActions
-    @IBAction func startTimer(_ sender: Any) {
-        
-        startAnimatedProgressRing()
-        
+    //Function that is called with the start button and starts the timer.
+    func startTimerFunction() {
+        //MARK: All code having to do with notifications
         //Ask the user permission to send notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (didAllow, error) in
             
             //Show notification when time is over
             let notification = UNMutableNotificationContent()
             notification.badge = 1
+            notification.sound = UNNotificationSound.default()
+            
+            //Adding actions to the notifications (start next round)
+            let startNextRound = UNNotificationAction(identifier: "startNextRound", title: "Start the next round", options: .foreground)
+            let notificationCategory = UNNotificationCategory(identifier: "category", actions: [startNextRound], intentIdentifiers: [], options: [])
+            UNUserNotificationCenter.current().setNotificationCategories([notificationCategory])
+            notification.categoryIdentifier = "category"
             
             //Creating different notifications for different types of rounds
-            
             if self.roundNumber % 2 == 0 && self.roundNumber < 4 {
                 notification.title = "5 minute break over!"
                 notification.body = "The short 5 minute break is over. You should focus and get back to work! This was round number \(self.roundNumber)."
@@ -251,6 +262,21 @@ class TimerViewController: UIViewController {
             }
             
         }
+    
+        if isTimerRunning == false {
+            runTimer()
+        } else {
+            print("Timer was already running")
+        }
+        
+    }
+    
+    //IBActions
+    @IBAction func startTimer(_ sender: Any) {
+        
+        startAnimatedProgressRing()
+        
+        startTimerFunction()
         
         //Hide the start button and unhide the pause button
         startButton.isHidden = true
