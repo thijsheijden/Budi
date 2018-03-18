@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import UICircularProgressRing
 import UserNotifications
 import AudioToolbox
 
 class TimerViewController: UIViewController {
     
     //IBOutlets
-    @IBOutlet weak var focusTimer: UICircularProgressRingView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
@@ -27,6 +25,12 @@ class TimerViewController: UIViewController {
     var isTimerRunning = false
     var roundNumber = 1
     var focusRounds = 1
+    var isProgressRingAnimating = false
+    
+    //Circular progressring constants and variables
+    let shapeLayer = CAShapeLayer()
+    let yellowColor = UIColor(red:1.00, green:0.92, blue:0.23, alpha:1.0)
+    let indiGoColor = UIColor(red:0.25, green:0.32, blue:0.71, alpha:1.0)
     
     
     //ViewDidLoad and viewWillDisapear
@@ -38,15 +42,40 @@ class TimerViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.closeActivityController), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.openactivity), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        
-        focusTimer.ringStyle = .ontop
-        focusTimer.outerCapStyle = .round
+
         
         //Hiding buttons that are not supposed to be accesible
         pauseButton.isHidden = true
         stopButton.isHidden = true
         resumeButton.isHidden = true
         
+        //MARK: All the code for the animated progress ring
+        // let's start by drawing a circle somehow
+        let center = view.center
+        
+        // create my track layer
+        let trackLayer = CAShapeLayer()
+        
+        let circularPath = UIBezierPath(arcCenter: center, radius: 150, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
+        trackLayer.path = circularPath.cgPath
+        
+        trackLayer.strokeColor = yellowColor.cgColor
+        trackLayer.lineWidth = 12
+        trackLayer.fillColor = UIColor.clear.cgColor
+        trackLayer.lineCap = kCALineCapButt
+        view.layer.addSublayer(trackLayer)
+        
+        //let circularPath = UIBezierPath(arcCenter: center, radius: 100, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
+        shapeLayer.path = circularPath.cgPath
+        
+        shapeLayer.strokeColor = indiGoColor.cgColor
+        shapeLayer.lineWidth = 12
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.lineCap = kCALineCapButt
+        
+        shapeLayer.strokeEnd = 0
+        
+        view.layer.addSublayer(shapeLayer)
     }
     
     //ViewWillDisappear function
@@ -56,7 +85,39 @@ class TimerViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
-    //Functions
+    //MARK: Functions
+    
+    func startAnimatedProgressRing() {
+        if isProgressRingAnimating == true {
+            print("Ring already animating")
+        } else {
+            print("Attempting to animate stroke")
+            
+            let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            basicAnimation.speed = 0.8
+            basicAnimation.toValue = 1
+            
+            basicAnimation.duration = Double(timeInSeconds)
+            
+            basicAnimation.fillMode = kCAFillModeForwards
+            basicAnimation.isRemovedOnCompletion = false
+            
+            shapeLayer.add(basicAnimation, forKey: "urSoBasic")
+            isProgressRingAnimating = true
+        }
+        
+    }
+
+    func stopAnimatingProgressRing() {
+        shapeLayer.speed = 0.0
+        isProgressRingAnimating = false
+    }
+    
+    func resumeAnimatingProgressRing() {
+        shapeLayer.speed = 0.8
+        isProgressRingAnimating = true
+    }
+    
     func timeString(time:TimeInterval) -> String {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
@@ -156,10 +217,7 @@ class TimerViewController: UIViewController {
     //IBActions
     @IBAction func startTimer(_ sender: Any) {
         
-        //Start the progress ring
-        focusTimer.setProgress(value: 100, animationDuration: 1500.0) {
-            
-        }
+        startAnimatedProgressRing()
         
         //Ask the user permission to send notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (didAllow, error) in
@@ -209,11 +267,25 @@ class TimerViewController: UIViewController {
         timer.invalidate()
         resumeButton.isHidden = false
         isTimerRunning = false
+        
+        if isProgressRingAnimating == true {
+            stopAnimatingProgressRing()
+            isProgressRingAnimating = false
+        } else {
+            print("ring was already paused")
+        }
+        
     }
     
     @IBAction func stopButtonPressed(_ sender: Any) {
         timer.invalidate()
-        isTimerRunning = false
+        
+        if isProgressRingAnimating == true {
+            stopAnimatingProgressRing()
+            isProgressRingAnimating = false
+        } else {
+            print("ring was already paused")
+        }
     }
     
     @IBAction func resumeButtonPressed(_ sender: Any) {
@@ -221,6 +293,14 @@ class TimerViewController: UIViewController {
         isTimerRunning = true
         resumeButton.isHidden = true
         pauseButton.isHidden = false
+        
+        if isProgressRingAnimating == true {
+            print("Sorry ring was already animating")
+        } else {
+            resumeAnimatingProgressRing()
+            isProgressRingAnimating = true
+        }
+        
     }
     
     
