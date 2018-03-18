@@ -6,20 +6,21 @@
 //  Copyright © 2018 Thijs van der Heijden. All rights reserved.
 //
 
+//MARK: Importing all the frameworks and pods
 import UIKit
 import UserNotifications
 import AudioToolbox
 
 class TimerViewController: UIViewController {
     
-    //IBOutlets
+    //MARK: IBOutlets
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var resumeButton: UIButton!
     
-    //Variables and constants
+    //MARK: Variables and constants
     var timeInSeconds = 1500
     var timer = Timer()
     var isTimerRunning = false
@@ -32,28 +33,29 @@ class TimerViewController: UIViewController {
     let yellowColor = UIColor(red:1.00, green:0.92, blue:0.23, alpha:1.0)
     let indiGoColor = UIColor(red:0.25, green:0.32, blue:0.71, alpha:1.0)
     
-    
-    //ViewDidLoad and viewWillDisapear
+    //MARK: ViewDidLoad and ViewWillDisapear
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Adding all the daily progresses to the dailyProgressArray
+        addDailyProgressToArray()
         
         //Function that adds all the ambientSound classes to the array
         addSoundsToArray()
         
+        //Functions that check wether the app has gone into the background
         NotificationCenter.default.addObserver(self, selector: #selector(self.closeActivityController), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.openactivity), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
 
         
         //Hiding buttons that are not supposed to be accesible
-        pauseButton.isHidden = true
-        stopButton.isHidden = true
-        resumeButton.isHidden = true
+        hideButtonsWhenNotAccesible()
         
-        //MARK: All the code for the animated progress ring
-        // let's start by drawing a circle somehow
+        //All the code for the animated progress ring
+        //Drawing a circle
         let center = view.center
         
-        // create my track layer
+        //Create my track layer
         let trackLayer = CAShapeLayer()
         
         let circularPath = UIBezierPath(arcCenter: center, radius: 150, startAngle: -CGFloat.pi / 2, endAngle: 2 * CGFloat.pi, clockwise: true)
@@ -85,7 +87,20 @@ class TimerViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
-    //MARK: Functions
+    //MARK: All the Functions
+    
+    //Function to hide the buttons which are not supposed to be visible when the app opens
+    func hideButtonsWhenNotAccesible() {
+        stopButton.isHidden = true
+        pauseButton.isHidden = true
+        resumeButton.isHidden = true
+    }
+    
+    //Function to show the pause and stop button
+    func showButtonsWhenAccesible() {
+        stopButton.isHidden = false
+        pauseButton.isHidden = false
+    }
     
     func startAnimatedProgressRing() {
         if isProgressRingAnimating == true {
@@ -108,16 +123,19 @@ class TimerViewController: UIViewController {
         
     }
 
+    //Stop the ring from animating when for instance pause or stop is pressed
     func stopAnimatingProgressRing() {
         shapeLayer.speed = 0.0
         isProgressRingAnimating = false
     }
     
+    //Resume the ring animation when for instance resume has been pressed
     func resumeAnimatingProgressRing() {
         shapeLayer.speed = 0.8
         isProgressRingAnimating = true
     }
     
+    //Convert the time in seconds to hours, minutes and seconds and display this in the correct format
     func timeString(time:TimeInterval) -> String {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
@@ -131,28 +149,42 @@ class TimerViewController: UIViewController {
         isTimerRunning = true
     }
     
+    //Function that checks the round number and sets the timeInSeconds accordingly for the next round
+    func setNextRoundTimeInSeconds(roundNumber: Int) {
+        if roundNumber % 2 == 0 && roundNumber < 4 {
+            timeInSeconds = 300
+        } else if roundNumber % 4 == 0 {
+            timeInSeconds = 1800
+        } else {
+            timeInSeconds = 1500
+            focusRounds += 1
+        }
+    }
+    
+    //Function that sets
+    
     //Function which updates the timer
     @objc func updateTimer() {
         if timeInSeconds < 1 {
             timer.invalidate()
+            
+            //Display the start button again
             startButton.isHidden = false
-            pauseButton.isHidden = true
-            stopButton.isHidden = true
+            
+            //Hiding all the other buttons
+            hideButtonsWhenNotAccesible()
+            
+            //Timer is not running anymore so set that variable to false
             isTimerRunning = false
             
             //setting the label to 00 : 00 : 00 in case the app was closed when the timer reached 0
             timerLabel.text = timeString(time: TimeInterval(0))
             
+            //Add one to the roundnumber so that the correct notification is displayed next round
             roundNumber += 1
             
-            if roundNumber % 2 == 0 && roundNumber < 4 {
-                timeInSeconds = 300
-            } else if roundNumber % 4 == 0 {
-                timeInSeconds = 1800
-            } else {
-                timeInSeconds = 1500
-                focusRounds += 1
-            }
+            //Pass the roundnumber to the function which sets the timeInSeconds correctly
+            setNextRoundTimeInSeconds(roundNumber: roundNumber)
             
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
@@ -188,7 +220,6 @@ class TimerViewController: UIViewController {
             print(startDate)
             UserDefaults.standard.set(startDate, forKey: "startDate")
         }
-        
     }
     
     //What happens when the app is opened again
@@ -221,8 +252,9 @@ class TimerViewController: UIViewController {
         isTimerRunning = true
     }
     
-    //Function that is called with the start button and starts the timer.
-    func startTimerFunction() {
+    //Function that creates notifications according to the roundnumber
+    func createNotificationAccordingToRoundNumber(roundNumber: Int, timeInSeconds: Int) {
+
         //MARK: All code having to do with notifications
         //Ask the user permission to send notifications
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (didAllow, error) in
@@ -262,6 +294,14 @@ class TimerViewController: UIViewController {
             }
             
         }
+        
+    }
+    
+    //This function gets called when the start button is pressed
+    func startTimerFunction() {
+
+        //Call the notification Function
+        createNotificationAccordingToRoundNumber(roundNumber: roundNumber, timeInSeconds: timeInSeconds)
     
         if isTimerRunning == false {
             runTimer()
@@ -271,7 +311,7 @@ class TimerViewController: UIViewController {
         
     }
     
-    //IBActions
+    //MARK: All the Button IBACTIONS
     @IBAction func startTimer(_ sender: Any) {
         
         startAnimatedProgressRing()

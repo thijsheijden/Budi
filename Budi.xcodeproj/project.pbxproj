@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		54A768A515435BE0BCFE87FC /* Pods_Budi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C08AAA5EB926B47540D343 /* Pods_Budi.framework */; };
-		763F130C205D9AFE00B5D1AA /* AssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F130B205D9AFE00B5D1AA /* AssignmentViewController.swift */; };
+		76045EB8205ED845003BEC48 /* DailyProgressClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76045EB7205ED845003BEC48 /* DailyProgressClass.swift */; };
+		76045EBA205EDCCA003BEC48 /* DailyProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76045EB9205EDCCA003BEC48 /* DailyProgressCell.swift */; };
+		763F130C205D9AFE00B5D1AA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */; };
 		76AAD92B20586AD2006A5D50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92A20586AD2006A5D50 /* AppDelegate.swift */; };
 		76AAD92D20586AD2006A5D50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92C20586AD2006A5D50 /* FirstViewController.swift */; };
 		76AAD93220586AD2006A5D50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76AAD93020586AD2006A5D50 /* Main.storyboard */; };
@@ -48,7 +50,9 @@
 		3BC38B92FD677159A9D87661 /* Pods-Budi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Budi/Pods-Budi.release.xcconfig"; sourceTree = "<group>"; };
 		40C08AAA5EB926B47540D343 /* Pods_Budi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E1C65B5B96FE429354658C6 /* Pods_BudiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BudiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		763F130B205D9AFE00B5D1AA /* AssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentViewController.swift; sourceTree = "<group>"; };
+		76045EB7205ED845003BEC48 /* DailyProgressClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressClass.swift; sourceTree = "<group>"; };
+		76045EB9205EDCCA003BEC48 /* DailyProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressCell.swift; sourceTree = "<group>"; };
+		763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		76AAD92720586AD2006A5D50 /* Budi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AAD92A20586AD2006A5D50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76AAD92C20586AD2006A5D50 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +163,7 @@
 				76AAD92C20586AD2006A5D50 /* FirstViewController.swift */,
 				76AAD95B2058716C006A5D50 /* TimerViewController.swift */,
 				76CD70992059C627008C1B2D /* AmbientViewController.swift */,
-				763F130B205D9AFE00B5D1AA /* AssignmentViewController.swift */,
+				763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -169,6 +173,8 @@
 			children = (
 				76CD709C2059C6AF008C1B2D /* AmbientSoundClass.swift */,
 				76CD70A02059C84A008C1B2D /* AmbientSoundCell.swift */,
+				76045EB7205ED845003BEC48 /* DailyProgressClass.swift */,
+				76045EB9205EDCCA003BEC48 /* DailyProgressCell.swift */,
 			);
 			path = "Data model";
 			sourceTree = "<group>";
@@ -478,11 +484,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				76AAD95C2058716C006A5D50 /* TimerViewController.swift in Sources */,
+				76045EB8205ED845003BEC48 /* DailyProgressClass.swift in Sources */,
 				76CD70A12059C84A008C1B2D /* AmbientSoundCell.swift in Sources */,
 				76AAD92B20586AD2006A5D50 /* AppDelegate.swift in Sources */,
 				76AAD92D20586AD2006A5D50 /* FirstViewController.swift in Sources */,
 				76CD709A2059C627008C1B2D /* AmbientViewController.swift in Sources */,
-				763F130C205D9AFE00B5D1AA /* AssignmentViewController.swift in Sources */,
+				76045EBA205EDCCA003BEC48 /* DailyProgressCell.swift in Sources */,
+				763F130C205D9AFE00B5D1AA /* ProgressViewController.swift in Sources */,
 				76CD709D2059C6AF008C1B2D /* AmbientSoundClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

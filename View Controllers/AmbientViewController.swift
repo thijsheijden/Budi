@@ -23,11 +23,6 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //UITableview Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ambientSounds.count
