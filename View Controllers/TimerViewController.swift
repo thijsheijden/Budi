@@ -168,6 +168,9 @@ class TimerViewController: UIViewController {
         if timeInSeconds < 1 {
             timer.invalidate()
             
+            //Stop the ambient sound from playing
+            AmbientViewController().audioPlayer.stop()
+            
             //Display the start button again
             startButton.isHidden = false
             

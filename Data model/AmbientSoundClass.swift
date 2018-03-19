@@ -27,12 +27,12 @@ public class AmbientSound {
 var ambientSounds = [AmbientSound]()
 
 //Adding all the ambient sounds to data model
-let fireSound =  AmbientSound(imageName: "fire", soundFile: "fire", soundName: "fire")
-let rainSound = AmbientSound(imageName: "rain", soundFile: "rain", soundName: "rain")
-let thunderSound = AmbientSound(imageName: "thunder", soundFile: "rain", soundName: "thunder")
-let windSound = AmbientSound(imageName: "wind", soundFile: "fire", soundName: "wind")
-let trainSound = AmbientSound(imageName: "train", soundFile: "rain", soundName: "train")
-let waterSound = AmbientSound(imageName: "water", soundFile: "rain", soundName: "water")
+let fireSound =  AmbientSound(imageName: "fire", soundFile: "fire", soundName: "Fire")
+let rainSound = AmbientSound(imageName: "rain", soundFile: "rain", soundName: "Rain")
+let thunderSound = AmbientSound(imageName: "thunder", soundFile: "rain", soundName: "Thunder")
+let windSound = AmbientSound(imageName: "wind", soundFile: "fire", soundName: "Wind")
+let trainSound = AmbientSound(imageName: "train", soundFile: "rain", soundName: "Train")
+let waterSound = AmbientSound(imageName: "water", soundFile: "rain", soundName: "Water")
 //Adding sounds to array
 public func addSoundsToArray() {
     ambientSounds.append(fireSound)

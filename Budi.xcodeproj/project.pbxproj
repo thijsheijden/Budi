@@ -13,6 +13,7 @@
 		76045EBD20601E3F003BEC48 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76045EBC20601E3F003BEC48 /* rain.mp3 */; };
 		76045EBF20601E47003BEC48 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76045EBE20601E47003BEC48 /* fire.mp3 */; };
 		763F130C205D9AFE00B5D1AA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */; };
+		763F4E992060541C009BCC21 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F4E982060541C009BCC21 /* RoundedShadowView.swift */; };
 		76AAD92B20586AD2006A5D50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92A20586AD2006A5D50 /* AppDelegate.swift */; };
 		76AAD92D20586AD2006A5D50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92C20586AD2006A5D50 /* FirstViewController.swift */; };
 		76AAD93220586AD2006A5D50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76AAD93020586AD2006A5D50 /* Main.storyboard */; };
@@ -57,6 +58,8 @@
 		76045EBC20601E3F003BEC48 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
 		76045EBE20601E47003BEC48 /* fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fire.mp3; sourceTree = "<group>"; };
 		763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		763F4E982060541C009BCC21 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
+		763F4E9B20605590009BCC21 /* SanFranciscoDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Black.otf"; sourceTree = "<group>"; };
 		76AAD92720586AD2006A5D50 /* Budi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AAD92A20586AD2006A5D50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76AAD92C20586AD2006A5D50 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -116,9 +119,18 @@
 			path = "Sound Files";
 			sourceTree = "<group>";
 		};
+		763F4E9A20605583009BCC21 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				763F4E9B20605590009BCC21 /* SanFranciscoDisplay-Black.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		76AAD91E20586AD2006A5D50 = {
 			isa = PBXGroup;
 			children = (
+				763F4E9A20605583009BCC21 /* Fonts */,
 				76045EBB20601E19003BEC48 /* Sound Files */,
 				76CD709B2059C69E008C1B2D /* Data model */,
 				76AAD95A20587159006A5D50 /* View Controllers */,
@@ -189,6 +201,7 @@
 				76CD70A02059C84A008C1B2D /* AmbientSoundCell.swift */,
 				76045EB7205ED845003BEC48 /* DailyProgressClass.swift */,
 				76045EB9205EDCCA003BEC48 /* DailyProgressCell.swift */,
+				763F4E982060541C009BCC21 /* RoundedShadowView.swift */,
 			);
 			path = "Data model";
 			sourceTree = "<group>";
@@ -506,6 +519,7 @@
 			files = (
 				76AAD95C2058716C006A5D50 /* TimerViewController.swift in Sources */,
 				76045EB8205ED845003BEC48 /* DailyProgressClass.swift in Sources */,
+				763F4E992060541C009BCC21 /* RoundedShadowView.swift in Sources */,
 				76CD70A12059C84A008C1B2D /* AmbientSoundCell.swift in Sources */,
 				76AAD92B20586AD2006A5D50 /* AppDelegate.swift in Sources */,
 				76AAD92D20586AD2006A5D50 /* FirstViewController.swift in Sources */,

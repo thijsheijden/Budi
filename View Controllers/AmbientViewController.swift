@@ -12,7 +12,7 @@ import AVFoundation
 class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var currentAudioView: UIView!
+    @IBOutlet weak var currentAudioView: RoundedShadowView!
     @IBOutlet weak var currentAudioLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     
@@ -50,6 +50,11 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.playSoundButton.tag = indexPath.row
         cell.playSoundButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     
+        //Adding shadows to the play button in the cell
+        cell.playSoundButton.layer.shadowColor = UIColor.darkGray.cgColor
+        cell.playSoundButton.layer.shadowRadius = 5
+        cell.playSoundButton.layer.shadowOpacity = 0.75
+        
         //Rounding the corners of the ambientSoundCells
         cell.cellView.layer.cornerRadius = 20
         cell.cellView.layer.shadowColor = UIColor.darkGray.cgColor
@@ -58,7 +63,7 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //Adding all the sound images to the cells and giving them rounded edges
         cell.soundImage.image = UIImage(named: ambientSounds[indexPath.row].imageName)
-        cell.soundNameLabel.text = ambientSounds[indexPath.row].imageName
+        cell.soundNameLabel.text = ambientSounds[indexPath.row].soundName
         
         return cell
         
