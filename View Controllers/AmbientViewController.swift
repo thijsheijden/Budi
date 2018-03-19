@@ -12,6 +12,9 @@ import AVFoundation
 class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var currentAudioView: UIView!
+    @IBOutlet weak var currentAudioLabel: UILabel!
+    @IBOutlet weak var stopButton: UIButton!
     
     //Constants and variables
     let cellIdentifier = "AmbientSoundCell"
@@ -20,14 +23,17 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        //Adding an observer to see when the playback has ended
-
+        //Adding the current audio view to the tableview
+        tableView.addSubview(currentAudioView)
         
         tableView.delegate = self
         tableView.dataSource = self
         
         //Remove the grey lines between the tableview cells
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
+        //Hide the stop button until the music starts playing
+        stopButton.isHidden = true
     }
     
     //UITableview Functions
@@ -65,17 +71,18 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("Button tapped")
         let tapedIndex = sender as! UIButton
         let getSoundURL = ambientSounds[tapedIndex.tag].soundFile
-        playSound(soundURL: getSoundURL)
+        let getSoundName = ambientSounds[tapedIndex.tag].soundName
+        playSound(soundURL: getSoundURL, soundName: getSoundName)
     }
     
-    func playSound(soundURL: String) {
+    func playSound(soundURL: String, soundName: String) {
         //Prepare the audio player to play the correct sound file
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundURL, ofType: "mp3")!))
             audioPlayer.prepareToPlay()
             audioPlayer.numberOfLoops = -1
             
-            var audioSession = AVAudioSession.sharedInstance()
+            let audioSession = AVAudioSession.sharedInstance()
             
             do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayback)
@@ -88,6 +95,19 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         //start the audio player playback
-        audioPlayer.play()    }
+        audioPlayer.play()
+        stopButton.isHidden = false
+        currentAudioLabel.text = soundName
+    }
+    
+    //MARK: IBACTIONS
+    @IBAction func stopButtonPressed(_ sender: Any) {
+        if audioPlayer.isPlaying == true {
+            audioPlayer.stop()
+        } else {
+            print("Audio player not playing, not able to be stopped")
+        }
+        
+    }
     
 }

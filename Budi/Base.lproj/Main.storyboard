@@ -145,6 +145,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEC-1O-Ij6">
+                                <rect key="frame" x="0.0" y="568" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq7-Zy-xBm">
+                                        <rect key="frame" x="256" y="6.5" width="107" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="107" id="fsP-yR-oZ9"/>
+                                            <constraint firstAttribute="height" constant="37" id="ncV-nn-XHW"/>
+                                        </constraints>
+                                        <state key="normal" image="Stop Button"/>
+                                        <connections>
+                                            <action selector="stopButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="SWF-B8-ogP"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Sound Playing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agg-sY-eyF">
+                                        <rect key="frame" x="88" y="0.0" width="200" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="K9C-s9-HE4"/>
+                                            <constraint firstAttribute="height" constant="50" id="rdl-qa-FeX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" red="0.67450980392156867" green="0.67450980392156867" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="agg-sY-eyF" secondAttribute="bottom" id="Ayo-qq-0MX"/>
+                                    <constraint firstAttribute="trailing" secondItem="vq7-Zy-xBm" secondAttribute="trailing" constant="12" id="GZR-qU-VJr"/>
+                                    <constraint firstItem="vq7-Zy-xBm" firstAttribute="centerY" secondItem="OEC-1O-Ij6" secondAttribute="centerY" id="XwC-in-u4d"/>
+                                    <constraint firstItem="agg-sY-eyF" firstAttribute="centerX" secondItem="OEC-1O-Ij6" secondAttribute="centerX" id="fPf-O9-aEg"/>
+                                    <constraint firstAttribute="height" constant="50" id="vhc-IE-RpD"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fno-8M-eR7">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -175,10 +209,13 @@
                                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIv-5f-Pfv">
-                                                            <rect key="frame" x="298" y="38" width="45" height="42"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
-                                                            <state key="normal" title="Play"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIv-5f-Pfv">
+                                                            <rect key="frame" x="240" y="42" width="103" height="37"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="103" id="4Ga-ag-v3H"/>
+                                                                <constraint firstAttribute="height" constant="37" id="9ag-Dv-9XO"/>
+                                                            </constraints>
+                                                            <state key="normal" image="Start Button"/>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -213,6 +250,9 @@
                         <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="fno-8M-eR7" secondAttribute="bottom" id="PUR-zD-btm"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="OEC-1O-Ij6" secondAttribute="bottom" id="WGs-Al-1am"/>
+                            <constraint firstItem="OEC-1O-Ij6" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="Xbf-X1-yPV"/>
+                            <constraint firstItem="OEC-1O-Ij6" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="ddl-nb-bro"/>
                             <constraint firstItem="fno-8M-eR7" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="gyO-5y-AGO"/>
                             <constraint firstItem="fno-8M-eR7" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="tN1-Ka-W5y"/>
                             <constraint firstItem="fno-8M-eR7" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="xhY-PD-j17"/>
@@ -223,6 +263,9 @@
                         <color key="badgeColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="currentAudioLabel" destination="agg-sY-eyF" id="jte-0z-eNv"/>
+                        <outlet property="currentAudioView" destination="OEC-1O-Ij6" id="eEY-Dm-guP"/>
+                        <outlet property="stopButton" destination="vq7-Zy-xBm" id="41P-D1-mKW"/>
                         <outlet property="tableView" destination="fno-8M-eR7" id="BS9-9h-Qch"/>
                     </connections>
                 </viewController>

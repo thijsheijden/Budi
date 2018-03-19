@@ -16,13 +16,10 @@ class AmbientSoundCell: UITableViewCell {
     @IBOutlet weak var soundNameLabel: UILabel!
     @IBOutlet weak var playSoundButton: UIButton!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
     }
-
-    
     
 }
