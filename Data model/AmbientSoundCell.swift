@@ -14,7 +14,8 @@ class AmbientSoundCell: UITableViewCell {
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var soundImage: UIImageView!
     @IBOutlet weak var soundNameLabel: UILabel!
-    @IBOutlet weak var soundToggleButton: UIButton!
+    @IBOutlet weak var playSoundButton: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

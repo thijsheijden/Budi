@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -14,10 +15,14 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //Constants and variables
     let cellIdentifier = "AmbientSoundCell"
+    var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        //Adding an observer to see when the playback has ended
+
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -35,6 +40,10 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
             fatalError("The dequeued cell is not an instance of AmbientSoundCell.")
         }
         
+        //Adding the button to the cell and making it selectable
+        cell.playSoundButton.tag = indexPath.row
+        cell.playSoundButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+    
         //Rounding the corners of the ambientSoundCells
         cell.cellView.layer.cornerRadius = 20
         cell.cellView.layer.shadowColor = UIColor.darkGray.cgColor
@@ -48,4 +57,37 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
         
     }
+    
+    //MARK: Functions
+    
+    //Function to get the correct sound file according to the button tag
+    @objc func buttonAction(sender: UIButton!) {
+        print("Button tapped")
+        let tapedIndex = sender as! UIButton
+        let getSoundURL = ambientSounds[tapedIndex.tag].soundFile
+        playSound(soundURL: getSoundURL)
+    }
+    
+    func playSound(soundURL: String) {
+        //Prepare the audio player to play the correct sound file
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundURL, ofType: "mp3")!))
+            audioPlayer.prepareToPlay()
+            audioPlayer.numberOfLoops = -1
+            
+            var audioSession = AVAudioSession.sharedInstance()
+            
+            do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+            } catch {
+                print(error)
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+        //start the audio player playback
+        audioPlayer.play()    }
+    
 }

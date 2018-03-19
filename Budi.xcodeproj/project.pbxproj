@@ -10,6 +10,8 @@
 		54A768A515435BE0BCFE87FC /* Pods_Budi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C08AAA5EB926B47540D343 /* Pods_Budi.framework */; };
 		76045EB8205ED845003BEC48 /* DailyProgressClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76045EB7205ED845003BEC48 /* DailyProgressClass.swift */; };
 		76045EBA205EDCCA003BEC48 /* DailyProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76045EB9205EDCCA003BEC48 /* DailyProgressCell.swift */; };
+		76045EBD20601E3F003BEC48 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76045EBC20601E3F003BEC48 /* rain.mp3 */; };
+		76045EBF20601E47003BEC48 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76045EBE20601E47003BEC48 /* fire.mp3 */; };
 		763F130C205D9AFE00B5D1AA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */; };
 		76AAD92B20586AD2006A5D50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92A20586AD2006A5D50 /* AppDelegate.swift */; };
 		76AAD92D20586AD2006A5D50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92C20586AD2006A5D50 /* FirstViewController.swift */; };
@@ -52,6 +54,8 @@
 		6E1C65B5B96FE429354658C6 /* Pods_BudiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BudiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76045EB7205ED845003BEC48 /* DailyProgressClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressClass.swift; sourceTree = "<group>"; };
 		76045EB9205EDCCA003BEC48 /* DailyProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressCell.swift; sourceTree = "<group>"; };
+		76045EBC20601E3F003BEC48 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
+		76045EBE20601E47003BEC48 /* fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fire.mp3; sourceTree = "<group>"; };
 		763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		76AAD92720586AD2006A5D50 /* Budi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AAD92A20586AD2006A5D50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,9 +107,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76045EBB20601E19003BEC48 /* Sound Files */ = {
+			isa = PBXGroup;
+			children = (
+				76045EBC20601E3F003BEC48 /* rain.mp3 */,
+				76045EBE20601E47003BEC48 /* fire.mp3 */,
+			);
+			path = "Sound Files";
+			sourceTree = "<group>";
+		};
 		76AAD91E20586AD2006A5D50 = {
 			isa = PBXGroup;
 			children = (
+				76045EBB20601E19003BEC48 /* Sound Files */,
 				76CD709B2059C69E008C1B2D /* Data model */,
 				76AAD95A20587159006A5D50 /* View Controllers */,
 				76AAD92920586AD2006A5D50 /* Budi */,
@@ -280,6 +294,11 @@
 					76AAD92620586AD2006A5D50 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					76AAD93C20586AD2006A5D50 = {
 						CreatedOnToolsVersion = 9.2;
@@ -319,7 +338,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				76AAD93720586AD2006A5D50 /* LaunchScreen.storyboard in Resources */,
+				76045EBD20601E3F003BEC48 /* rain.mp3 in Resources */,
 				76AAD93420586AD2006A5D50 /* Assets.xcassets in Resources */,
+				76045EBF20601E47003BEC48 /* fire.mp3 in Resources */,
 				76AAD93220586AD2006A5D50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
