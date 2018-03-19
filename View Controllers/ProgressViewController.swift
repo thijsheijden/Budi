@@ -21,6 +21,9 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
             tableView.delegate = self
             tableView.dataSource = self
             
+            //Remove the grey seperators between the tableview cells
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+            
         }
         
         //UITableview Functions
@@ -35,7 +38,11 @@ class ProgressViewController: UIViewController, UITableViewDelegate, UITableView
             
             //Rounding the corners of the DailyProgress Cells
             cell.cellView.layer.cornerRadius = 20
+            cell.cellView.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.cellView.layer.shadowRadius = 5
+            cell.cellView.layer.shadowOpacity = 0.75
             
+            //Adding the text to the labels
             cell.dateLabel.text = String(dailyProgressArray[indexPath.row].dayNumber)
             cell.focusCountLabel.text = String(dailyProgressArray[indexPath.row].numberOfFocusRounds)
             

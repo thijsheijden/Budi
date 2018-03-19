@@ -21,6 +21,8 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
+        //Remove the grey lines between the tableview cells
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
     }
     
     //UITableview Functions
@@ -35,6 +37,9 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //Rounding the corners of the ambientSoundCells
         cell.cellView.layer.cornerRadius = 20
+        cell.cellView.layer.shadowColor = UIColor.darkGray.cgColor
+        cell.cellView.layer.shadowRadius = 5
+        cell.cellView.layer.shadowOpacity = 0.75
         
         //Adding all the sound images to the cells and giving them rounded edges
         cell.soundImage.image = UIImage(named: ambientSounds[indexPath.row].imageName)
