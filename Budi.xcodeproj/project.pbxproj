@@ -14,6 +14,7 @@
 		76045EBF20601E47003BEC48 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76045EBE20601E47003BEC48 /* fire.mp3 */; };
 		763F130C205D9AFE00B5D1AA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */; };
 		763F4E992060541C009BCC21 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F4E982060541C009BCC21 /* RoundedShadowView.swift */; };
+		763F4E9C20605CA0009BCC21 /* SanFranciscoDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 763F4E9B20605590009BCC21 /* SanFranciscoDisplay-Black.otf */; };
 		76AAD92B20586AD2006A5D50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92A20586AD2006A5D50 /* AppDelegate.swift */; };
 		76AAD92D20586AD2006A5D50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92C20586AD2006A5D50 /* FirstViewController.swift */; };
 		76AAD93220586AD2006A5D50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76AAD93020586AD2006A5D50 /* Main.storyboard */; };
@@ -350,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763F4E9C20605CA0009BCC21 /* SanFranciscoDisplay-Black.otf in Resources */,
 				76AAD93720586AD2006A5D50 /* LaunchScreen.storyboard in Resources */,
 				76045EBD20601E3F003BEC48 /* rain.mp3 in Resources */,
 				76AAD93420586AD2006A5D50 /* Assets.xcassets in Resources */,

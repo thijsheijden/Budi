@@ -93,29 +93,42 @@
                                     <action selector="resumeButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="RDS-Hd-3TL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTm-Fu-nQu">
-                                <rect key="frame" x="93" y="297" width="189" height="72"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6t-Id-hDB" customClass="RoundedShadowView" customModule="Budi" customModuleProvider="target">
+                                <rect key="frame" x="12" y="32" width="351" height="135"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTm-Fu-nQu">
+                                        <rect key="frame" x="81" y="31" width="189" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="189" id="K4Y-QT-oA1"/>
+                                            <constraint firstAttribute="height" constant="72" id="zBl-mR-UTl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SanFranciscoDisplay-Black" family="San Francisco Display" pointSize="60"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99204939603805542" green="0.99221879243850708" blue="0.99203866720199585" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="189" id="K4Y-QT-oA1"/>
-                                    <constraint firstAttribute="height" constant="72" id="zBl-mR-UTl"/>
+                                    <constraint firstAttribute="height" constant="135" id="E7Q-gu-DH8"/>
+                                    <constraint firstItem="oTm-Fu-nQu" firstAttribute="centerY" secondItem="o6t-Id-hDB" secondAttribute="centerY" id="hgN-Gf-A8f"/>
+                                    <constraint firstItem="oTm-Fu-nQu" firstAttribute="centerX" secondItem="o6t-Id-hDB" secondAttribute="centerX" id="phn-gQ-6gq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.24705882352941178" green="0.31764705882352939" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oTm-Fu-nQu" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="06D-2q-Dm7"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ybf-iL-IVE" secondAttribute="bottom" constant="50" id="3VZ-Kd-tty"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="UNG-Zh-dsD" secondAttribute="bottom" constant="50" id="BSB-8i-fik"/>
-                            <constraint firstItem="oTm-Fu-nQu" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Ewd-wv-IUS"/>
+                            <constraint firstItem="o6t-Id-hDB" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="FVj-5q-Ar9"/>
                             <constraint firstItem="UNG-Zh-dsD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="LaB-9W-Ajo"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="aFE-bX-UvJ" secondAttribute="bottom" constant="50" id="M5D-Fw-1Qk"/>
+                            <constraint firstItem="o6t-Id-hDB" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="12" id="MF0-P0-A9y"/>
                             <constraint firstItem="ybf-iL-IVE" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="MWR-5d-caa"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="aFE-bX-UvJ" secondAttribute="bottom" constant="50" id="XfL-ca-v34"/>
                             <constraint firstItem="aFE-bX-UvJ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Zw7-Kg-JOM"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="o6t-Id-hDB" secondAttribute="trailing" constant="12" id="awX-cb-8Td"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="ybf-iL-IVE" secondAttribute="bottom" constant="50" id="g7s-Qh-gMh"/>
+                            <constraint firstItem="o6t-Id-hDB" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="12" id="gSr-Xy-Scs"/>
                             <constraint firstItem="aFE-bX-UvJ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ivH-0f-Gpe"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="UNG-Zh-dsD" secondAttribute="bottom" constant="50" id="r5A-LH-brU"/>
                             <constraint firstItem="UNG-Zh-dsD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="20" id="urS-Jf-guw"/>
@@ -131,6 +144,7 @@
                         <outlet property="startButton" destination="aFE-bX-UvJ" id="Mo2-5o-5bb"/>
                         <outlet property="stopButton" destination="euA-Dd-844" id="W2w-LA-Ddr"/>
                         <outlet property="timerLabel" destination="oTm-Fu-nQu" id="XXG-vC-Yeg"/>
+                        <outlet property="timerRoundedShadowView" destination="o6t-Id-hDB" id="eYX-tm-hVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
