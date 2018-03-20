@@ -74,9 +74,9 @@ class AmbientViewController: UIViewController, UITableViewDelegate, UITableViewD
     //Function to get the correct sound file according to the button tag
     @objc func buttonAction(sender: UIButton!) {
         print("Button tapped")
-        let tapedIndex = sender as! UIButton
-        let getSoundURL = ambientSounds[tapedIndex.tag].soundFile
-        let getSoundName = ambientSounds[tapedIndex.tag].soundName
+        let tappedIndex = sender as! UIButton
+        let getSoundURL = ambientSounds[tappedIndex.tag].soundFile
+        let getSoundName = ambientSounds[tappedIndex.tag].soundName
         playSound(soundURL: getSoundURL, soundName: getSoundName)
     }
     

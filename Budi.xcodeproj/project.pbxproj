@@ -11,10 +11,14 @@
 		76045EB8205ED845003BEC48 /* DailyProgressClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76045EB7205ED845003BEC48 /* DailyProgressClass.swift */; };
 		76045EBA205EDCCA003BEC48 /* DailyProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76045EB9205EDCCA003BEC48 /* DailyProgressCell.swift */; };
 		76045EBD20601E3F003BEC48 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76045EBC20601E3F003BEC48 /* rain.mp3 */; };
-		76045EBF20601E47003BEC48 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76045EBE20601E47003BEC48 /* fire.mp3 */; };
 		763F130C205D9AFE00B5D1AA /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */; };
 		763F4E992060541C009BCC21 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763F4E982060541C009BCC21 /* RoundedShadowView.swift */; };
 		763F4E9C20605CA0009BCC21 /* SanFranciscoDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 763F4E9B20605590009BCC21 /* SanFranciscoDisplay-Black.otf */; };
+		76403B2220614DC500A05C59 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76403B2120614DC400A05C59 /* fire.mp3 */; };
+		76403B2420614DDC00A05C59 /* wind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76403B2320614DDC00A05C59 /* wind.mp3 */; };
+		76403B2620614DE700A05C59 /* thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76403B2520614DE700A05C59 /* thunder.mp3 */; };
+		76403B2820614DEF00A05C59 /* train.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76403B2720614DEF00A05C59 /* train.mp3 */; };
+		76403B2A20614F2E00A05C59 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76403B2920614F2E00A05C59 /* water.mp3 */; };
 		76AAD92B20586AD2006A5D50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92A20586AD2006A5D50 /* AppDelegate.swift */; };
 		76AAD92D20586AD2006A5D50 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AAD92C20586AD2006A5D50 /* FirstViewController.swift */; };
 		76AAD93220586AD2006A5D50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76AAD93020586AD2006A5D50 /* Main.storyboard */; };
@@ -57,10 +61,14 @@
 		76045EB7205ED845003BEC48 /* DailyProgressClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressClass.swift; sourceTree = "<group>"; };
 		76045EB9205EDCCA003BEC48 /* DailyProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressCell.swift; sourceTree = "<group>"; };
 		76045EBC20601E3F003BEC48 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
-		76045EBE20601E47003BEC48 /* fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fire.mp3; sourceTree = "<group>"; };
 		763F130B205D9AFE00B5D1AA /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		763F4E982060541C009BCC21 /* RoundedShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		763F4E9B20605590009BCC21 /* SanFranciscoDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanFranciscoDisplay-Black.otf"; sourceTree = "<group>"; };
+		76403B2120614DC400A05C59 /* fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fire.mp3; sourceTree = "<group>"; };
+		76403B2320614DDC00A05C59 /* wind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wind.mp3; sourceTree = "<group>"; };
+		76403B2520614DE700A05C59 /* thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thunder.mp3; sourceTree = "<group>"; };
+		76403B2720614DEF00A05C59 /* train.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = train.mp3; sourceTree = "<group>"; };
+		76403B2920614F2E00A05C59 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
 		76AAD92720586AD2006A5D50 /* Budi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AAD92A20586AD2006A5D50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76AAD92C20586AD2006A5D50 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +123,11 @@
 			isa = PBXGroup;
 			children = (
 				76045EBC20601E3F003BEC48 /* rain.mp3 */,
-				76045EBE20601E47003BEC48 /* fire.mp3 */,
+				76403B2120614DC400A05C59 /* fire.mp3 */,
+				76403B2320614DDC00A05C59 /* wind.mp3 */,
+				76403B2520614DE700A05C59 /* thunder.mp3 */,
+				76403B2720614DEF00A05C59 /* train.mp3 */,
+				76403B2920614F2E00A05C59 /* water.mp3 */,
 			);
 			path = "Sound Files";
 			sourceTree = "<group>";
@@ -352,10 +364,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				763F4E9C20605CA0009BCC21 /* SanFranciscoDisplay-Black.otf in Resources */,
+				76403B2820614DEF00A05C59 /* train.mp3 in Resources */,
+				76403B2420614DDC00A05C59 /* wind.mp3 in Resources */,
+				76403B2220614DC500A05C59 /* fire.mp3 in Resources */,
 				76AAD93720586AD2006A5D50 /* LaunchScreen.storyboard in Resources */,
+				76403B2620614DE700A05C59 /* thunder.mp3 in Resources */,
+				76403B2A20614F2E00A05C59 /* water.mp3 in Resources */,
 				76045EBD20601E3F003BEC48 /* rain.mp3 in Resources */,
 				76AAD93420586AD2006A5D50 /* Assets.xcassets in Resources */,
-				76045EBF20601E47003BEC48 /* fire.mp3 in Resources */,
 				76AAD93220586AD2006A5D50 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
